@@ -45,4 +45,24 @@ me.sayName();
 
 
 // Implicit Binding - Example 2
+var sayNameMixin = function(obj) {
+  obj.sayName= function() {
+    console.log(this.name);
+  };
+};
 
+var him = {
+  name: 'Pacey',
+  age: 15
+};
+
+var her = {
+  name: 'Joey',
+  age: 14
+};
+
+sayNameMixin(him);
+sayNameMixin(her);
+
+him.sayName();
+her.sayName();
