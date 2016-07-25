@@ -66,3 +66,28 @@ sayNameMixin(her);
 
 him.sayName();
 her.sayName();
+
+
+//Implicit Example 3
+var Person = function(name, age){
+  return {
+    name: name,
+    age: age,
+    sayName: function() {
+      console.log(this.name);
+    },
+    mother: {
+      name: 'Stacey',
+      sayName: function() {
+        console.log(this.name);
+      }
+    }
+  }
+};
+
+var jim = Person('jim', 42);
+//jim is left of the dot, so 'this' keyword would be jim
+jim.sayName();
+
+//mother is left of the dot, so 'this' keyword would be jim's mother
+jim.mother.sayName();
